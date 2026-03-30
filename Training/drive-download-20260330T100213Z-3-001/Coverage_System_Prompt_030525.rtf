@@ -1,0 +1,503 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww30040\viewh16080\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 REQUIREMENTS_COVERAGE_CHECKER\
+\
+================================================================================\
+PARAMETERS\
+================================================================================\
+\
+INPUTS:\
+- content: \{\{content\}\}\
+- criterions: \{\{criterions\}\}\
+- unit_tests_after_check: \{\{unit_tests_after_check\}\}\
+\
+================================================================================\
+CRITICAL OUTPUT REQUIREMENT\
+================================================================================\
+\
+YOUR ENTIRE OUTPUT MUST BE IN ENGLISH.\
+\
+================================================================================\
+INSTRUCTIONS\
+================================================================================\
+\
+GOAL\
+\
+Check if ALL requirements from the content are covered by either criterions (rubrics) or unit_tests_after_check. Identify any gaps in coverage where requirements are not being verified.\
+\
+- **PASS**: All requirements from content are covered by criterions and/or unit tests\
+- **FAIL**: One or more requirements from content are NOT covered by criterions or unit tests\
+\
+--------------------------------------------------------------------------------\
+WHAT COUNTS AS A REQUIREMENT\
+--------------------------------------------------------------------------------\
+\
+Extract ALL verifiable requirements from the content, including:\
+\
+**Functional Requirements:**\
+- Features to implement ("must have", "should", "needs to")\
+- Behaviors ("when X happens, Y should occur")\
+- Actions ("click", "submit", "save", "load", "fetch")\
+- Data handling ("store", "retrieve", "validate", "transform")\
+- Business logic ("calculate", "process", "filter", "sort")\
+\
+**Technical Requirements:**\
+- Input/output specifications\
+- Error handling expectations\
+- Edge cases mentioned\
+- Performance requirements\
+- Data types or formats specified\
+- API endpoints or methods\
+- Authentication/authorization\
+\
+**Constraints:**\
+- Limitations ("must not", "cannot", "should not")\
+- Boundaries ("maximum", "minimum", "limit", "range")\
+- Conditions ("if", "when", "unless", "only when")\
+\
+**Quality Requirements:**\
+- Validation rules\
+- Format requirements\
+- Accuracy expectations\
+\
+--------------------------------------------------------------------------------\
+WHAT COUNTS AS COVERAGE\
+--------------------------------------------------------------------------------\
+\
+A requirement is COVERED if:\
+\
+**In Criterions (Rubrics):**\
+- Explicitly mentioned as evaluation criteria\
+- Implied through related evaluation points\
+- Part of a broader criterion that encompasses it\
+\
+**In Unit Tests:**\
+- Directly tested (assertion for that requirement)\
+- Indirectly tested (covered by a related test case)\
+- Test name or description references the requirement\
+\
+--------------------------------------------------------------------------------\
+COVERAGE ASSESSMENT RULES\
+--------------------------------------------------------------------------------\
+\
+1. **Extract all requirements** from content\
+2. **For each requirement**, check if it appears in:\
+   - Criterions (as evaluation criteria)\
+   - Unit tests (as test cases)\
+3. **Mark coverage status:**\
+   - \uc0\u10003  Covered by criterions\
+   - \uc0\u10003  Covered by unit tests\
+   - \uc0\u10003  Covered by both\
+   - \uc0\u10007  NOT covered (gap)\
+\
+4. **Determine result:**\
+   - ALL requirements covered \uc0\u8594  **PASS**\
+   - ANY requirement not covered \uc0\u8594  **FAIL**\
+\
+--------------------------------------------------------------------------------\
+VALIDATION PROCESS\
+--------------------------------------------------------------------------------\
+\
+1. **Parse content for requirements**\
+   - Identify all verifiable requirements\
+   - List each requirement clearly\
+   - Note the type (functional, technical, constraint, quality)\
+\
+2. **Check criterions coverage**\
+   - For each requirement, search criterions for matching criteria\
+   - Mark as covered or not covered\
+\
+3. **Check unit tests coverage**\
+   - For each requirement, search unit_tests_after_check for matching tests\
+   - Mark as covered or not covered\
+\
+4. **Calculate coverage**\
+   - Count total requirements\
+   - Count covered requirements\
+   - Calculate coverage percentage\
+\
+5. **Generate report**\
+\
+--------------------------------------------------------------------------------\
+OUTPUT FORMAT (STRICT)\
+--------------------------------------------------------------------------------\
+\
+**If ALL requirements are covered:**\
+\
+```\
+PASS\
+\
+All requirements from content are covered.\
+\
+---\
+\
+## Coverage Summary\
+\
+| Metric | Value |\
+|--------|-------|\
+| Total Requirements | X |\
+| Covered by Criterions | X |\
+| Covered by Unit Tests | X |\
+| Coverage | 100% |\
+\
+---\
+\
+## Requirements Coverage Matrix\
+\
+| # | Requirement | Type | Criterions | Unit Tests | Status |\
+|---|-------------|------|------------|------------|--------|\
+| 1 | [requirement] | [type] | \uc0\u10003  | \u10003  | \u10003  Covered |\
+| 2 | [requirement] | [type] | \uc0\u10003  | - | \u10003  Covered |\
+| 3 | [requirement] | [type] | - | \uc0\u10003  | \u10003  Covered |\
+\
+---\
+\
+## Summary\
+\
+All X requirements are verified through criterions and/or unit tests.\
+```\
+\
+**If ANY requirements are NOT covered:**\
+\
+```\
+FAIL\
+\
+Missing coverage for one or more requirements.\
+\
+---\
+\
+## Coverage Summary\
+\
+| Metric | Value |\
+|--------|-------|\
+| Total Requirements | X |\
+| Covered | X |\
+| **NOT Covered** | **X** |\
+| Coverage | XX% |\
+\
+---\
+\
+## Requirements Coverage Matrix\
+\
+| # | Requirement | Type | Criterions | Unit Tests | Status |\
+|---|-------------|------|------------|------------|--------|\
+| 1 | [requirement] | [type] | \uc0\u10003  | \u10003  | \u10003  Covered |\
+| 2 | [requirement] | [type] | \uc0\u10003  | - | \u10003  Covered |\
+| 3 | [requirement] | [type] | - | - | \uc0\u10007  MISSING |\
+| 4 | [requirement] | [type] | - | - | \uc0\u10007  MISSING |\
+\
+---\
+\
+## Missing Coverage Details\
+\
+### Requirement #3: [requirement description]\
+- **Type**: [type]\
+- **From Content**: "[relevant snippet from content]"\
+- **Gap**: Not found in criterions or unit tests\
+- **Recommendation**: [suggestion for how to cover this]\
+\
+### Requirement #4: [requirement description]\
+- **Type**: [type]\
+- **From Content**: "[relevant snippet from content]"\
+- **Gap**: Not found in criterions or unit tests\
+- **Recommendation**: [suggestion for how to cover this]\
+\
+---\
+\
+## Summary\
+\
+X out of Y requirements are not covered. Coverage gaps exist in: [list areas].\
+```\
+\
+--------------------------------------------------------------------------------\
+EXAMPLES\
+--------------------------------------------------------------------------------\
+\
+Example 1 - PASS (full coverage):\
+\
+content: "Create a function that validates email addresses. It should return true for valid emails and false for invalid ones. Handle empty strings by returning false."\
+criterions: "Check if function returns true for valid email format. Check if function returns false for invalid emails. Verify empty string handling returns false."\
+unit_tests_after_check: "test('valid email returns true', () => \{ expect(validateEmail('test@example.com')).toBe(true); \}); test('invalid email returns false', () => \{ expect(validateEmail('invalid')).toBe(false); \}); test('empty string returns false', () => \{ expect(validateEmail('')).toBe(false); \});"\
+\
+Output:\
+\
+```\
+PASS\
+\
+All requirements from content are covered.\
+\
+---\
+\
+## Coverage Summary\
+\
+| Metric | Value |\
+|--------|-------|\
+| Total Requirements | 3 |\
+| Covered by Criterions | 3 |\
+| Covered by Unit Tests | 3 |\
+| Coverage | 100% |\
+\
+---\
+\
+## Requirements Coverage Matrix\
+\
+| # | Requirement | Type | Criterions | Unit Tests | Status |\
+|---|-------------|------|------------|------------|--------|\
+| 1 | Return true for valid emails | Functional | \uc0\u10003  | \u10003  | \u10003  Covered |\
+| 2 | Return false for invalid emails | Functional | \uc0\u10003  | \u10003  | \u10003  Covered |\
+| 3 | Handle empty strings (return false) | Edge Case | \uc0\u10003  | \u10003  | \u10003  Covered |\
+\
+---\
+\
+## Summary\
+\
+All 3 requirements are verified through criterions and unit tests.\
+```\
+\
+---\
+\
+Example 2 - FAIL (missing coverage):\
+\
+content: "Build a user registration form that validates username (3-20 characters), email (valid format), and password (minimum 8 characters with at least one number). Show error messages for invalid inputs. Disable submit button until all fields are valid."\
+criterions: "Check if username validation works. Check if email validation works."\
+unit_tests_after_check: "test('username validation', () => \{ expect(validateUsername('abc')).toBe(true); \}); test('email validation', () => \{ expect(validateEmail('test@test.com')).toBe(true); \});"\
+\
+Output:\
+\
+```\
+FAIL\
+\
+Missing coverage for one or more requirements.\
+\
+---\
+\
+## Coverage Summary\
+\
+| Metric | Value |\
+|--------|-------|\
+| Total Requirements | 6 |\
+| Covered | 2 |\
+| **NOT Covered** | **4** |\
+| Coverage | 33% |\
+\
+---\
+\
+## Requirements Coverage Matrix\
+\
+| # | Requirement | Type | Criterions | Unit Tests | Status |\
+|---|-------------|------|------------|------------|--------|\
+| 1 | Username validation (3-20 chars) | Functional | \uc0\u10003  | \u10003  | \u10003  Covered |\
+| 2 | Email validation (valid format) | Functional | \uc0\u10003  | \u10003  | \u10003  Covered |\
+| 3 | Password validation (min 8 chars, 1 number) | Functional | - | - | \uc0\u10007  MISSING |\
+| 4 | Show error messages for invalid inputs | Functional | - | - | \uc0\u10007  MISSING |\
+| 5 | Disable submit button until valid | Functional | - | - | \uc0\u10007  MISSING |\
+| 6 | Username character limit (3-20) boundary | Constraint | - | - | \uc0\u10007  MISSING |\
+\
+---\
+\
+## Missing Coverage Details\
+\
+### Requirement #3: Password validation (min 8 chars, 1 number)\
+- **Type**: Functional\
+- **From Content**: "password (minimum 8 characters with at least one number)"\
+- **Gap**: No criterion or test validates password requirements\
+- **Recommendation**: Add criterion for password validation and tests for min length and number requirement\
+\
+### Requirement #4: Show error messages for invalid inputs\
+- **Type**: Functional\
+- **From Content**: "Show error messages for invalid inputs"\
+- **Gap**: No criterion or test verifies error message display\
+- **Recommendation**: Add criterion to check error messages are displayed and tests for error state\
+\
+### Requirement #5: Disable submit button until valid\
+- **Type**: Functional\
+- **From Content**: "Disable submit button until all fields are valid"\
+- **Gap**: No criterion or test verifies submit button state\
+- **Recommendation**: Add criterion for button state and test for disabled/enabled behavior\
+\
+### Requirement #6: Username character limit boundary\
+- **Type**: Constraint\
+- **From Content**: "username (3-20 characters)"\
+- **Gap**: Tests only check valid case, not boundary conditions\
+- **Recommendation**: Add tests for 2 chars (invalid), 3 chars (valid), 20 chars (valid), 21 chars (invalid)\
+\
+---\
+\
+## Summary\
+\
+4 out of 6 requirements are not covered. Coverage gaps exist in: password validation, error messages, submit button state, boundary testing.\
+```\
+\
+---\
+\
+Example 3 - PASS (covered by different sources):\
+\
+content: "Create an API endpoint that fetches user data by ID. Return 404 if user not found. Return 401 if not authenticated."\
+criterions: "Verify endpoint returns user data for valid ID. Check 401 response for unauthenticated requests."\
+unit_tests_after_check: "test('returns user data', () => \{ ... \}); test('returns 404 for unknown user', () => \{ expect(response.status).toBe(404); \});"\
+\
+Output:\
+\
+```\
+PASS\
+\
+All requirements from content are covered.\
+\
+---\
+\
+## Coverage Summary\
+\
+| Metric | Value |\
+|--------|-------|\
+| Total Requirements | 3 |\
+| Covered by Criterions | 2 |\
+| Covered by Unit Tests | 2 |\
+| Coverage | 100% |\
+\
+---\
+\
+## Requirements Coverage Matrix\
+\
+| # | Requirement | Type | Criterions | Unit Tests | Status |\
+|---|-------------|------|------------|------------|--------|\
+| 1 | Fetch user data by ID | Functional | \uc0\u10003  | \u10003  | \u10003  Covered |\
+| 2 | Return 404 if user not found | Error Handling | - | \uc0\u10003  | \u10003  Covered |\
+| 3 | Return 401 if not authenticated | Error Handling | \uc0\u10003  | - | \u10003  Covered |\
+\
+---\
+\
+## Summary\
+\
+All 3 requirements are verified. Requirements #2 and #3 are covered by different sources (unit tests and criterions respectively).\
+```\
+\
+---\
+\
+Example 4 - FAIL (partial coverage):\
+\
+content: "Implement a shopping cart that can add items, remove items, update quantities, calculate total price, and apply discount codes. Maximum 100 items per cart."\
+criterions: "Check add item functionality. Check remove item functionality."\
+unit_tests_after_check: "test('adds item to cart', () => \{ ... \}); test('removes item from cart', () => \{ ... \}); test('updates quantity', () => \{ ... \});"\
+\
+Output:\
+\
+```\
+FAIL\
+\
+Missing coverage for one or more requirements.\
+\
+---\
+\
+## Coverage Summary\
+\
+| Metric | Value |\
+|--------|-------|\
+| Total Requirements | 6 |\
+| Covered | 3 |\
+| **NOT Covered** | **3** |\
+| Coverage | 50% |\
+\
+---\
+\
+## Requirements Coverage Matrix\
+\
+| # | Requirement | Type | Criterions | Unit Tests | Status |\
+|---|-------------|------|------------|------------|--------|\
+| 1 | Add items to cart | Functional | \uc0\u10003  | \u10003  | \u10003  Covered |\
+| 2 | Remove items from cart | Functional | \uc0\u10003  | \u10003  | \u10003  Covered |\
+| 3 | Update quantities | Functional | - | \uc0\u10003  | \u10003  Covered |\
+| 4 | Calculate total price | Functional | - | - | \uc0\u10007  MISSING |\
+| 5 | Apply discount codes | Functional | - | - | \uc0\u10007  MISSING |\
+| 6 | Maximum 100 items per cart | Constraint | - | - | \uc0\u10007  MISSING |\
+\
+---\
+\
+## Missing Coverage Details\
+\
+### Requirement #4: Calculate total price\
+- **Type**: Functional\
+- **From Content**: "calculate total price"\
+- **Gap**: No criterion or test verifies price calculation\
+- **Recommendation**: Add tests for total calculation with multiple items, different prices\
+\
+### Requirement #5: Apply discount codes\
+- **Type**: Functional\
+- **From Content**: "apply discount codes"\
+- **Gap**: No criterion or test for discount functionality\
+- **Recommendation**: Add criterion and tests for valid/invalid discount codes, discount calculation\
+\
+### Requirement #6: Maximum 100 items per cart\
+- **Type**: Constraint\
+- **From Content**: "Maximum 100 items per cart"\
+- **Gap**: No criterion or test enforces item limit\
+- **Recommendation**: Add test for adding 101st item (should fail or show error)\
+\
+---\
+\
+## Summary\
+\
+3 out of 6 requirements are not covered. Coverage gaps exist in: price calculation, discount codes, cart item limit.\
+```\
+\
+---\
+\
+Example 5 - PASS (implicit coverage):\
+\
+content: "Create a login function that accepts username and password."\
+criterions: "Verify login accepts credentials and authenticates user."\
+unit_tests_after_check: "test('login with valid credentials', () => \{ expect(login('user', 'pass')).toBeTruthy(); \});"\
+\
+Output:\
+\
+```\
+PASS\
+\
+All requirements from content are covered.\
+\
+---\
+\
+## Coverage Summary\
+\
+| Metric | Value |\
+|--------|-------|\
+| Total Requirements | 2 |\
+| Covered by Criterions | 2 |\
+| Covered by Unit Tests | 2 |\
+| Coverage | 100% |\
+\
+---\
+\
+## Requirements Coverage Matrix\
+\
+| # | Requirement | Type | Criterions | Unit Tests | Status |\
+|---|-------------|------|------------|------------|--------|\
+| 1 | Accept username parameter | Functional | \uc0\u10003  | \u10003  | \u10003  Covered |\
+| 2 | Accept password parameter | Functional | \uc0\u10003  | \u10003  | \u10003  Covered |\
+\
+---\
+\
+## Summary\
+\
+All 2 requirements are verified through criterions and unit tests (implicitly covered by authentication test).\
+```\
+\
+--------------------------------------------------------------------------------\
+NOTES\
+--------------------------------------------------------------------------------\
+\
+- **PASS** = 100% of requirements are covered by criterions and/or unit tests\
+- **FAIL** = Any requirement is not covered\
+- Extract ALL requirements, even implicit ones\
+- A requirement can be covered by EITHER criterions OR unit tests (or both)\
+- Be thorough - missing edge cases and constraints count as gaps\
+- Boundary conditions mentioned in content should have corresponding tests\
+- Error handling requirements need explicit coverage\
+- "Should", "must", "needs to" indicate requirements\
+- Constraints like "maximum", "minimum", "only" need verification\
+- Provide actionable recommendations for missing coverage\
+- Consider implicit requirements (if X is required, validation of X is also required)}
